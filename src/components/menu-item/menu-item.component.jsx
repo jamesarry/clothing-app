@@ -8,7 +8,7 @@ export const MenuItem = ({title, imageUrl, size, history, linkUrl, match}) => (
     * size is to increase the height. dynamically make style in our component.style={{
           backgroundImage: `url(${imageUrl})`
         }}
-        //Navigates us to our hat page when hat is clicked
+        //Navigates us to our hat page when hat is clicked. The component will see where it is matched to ${match.url} and then append the linkUrl ${linkUr}
         onClick={() => history.push(`${match.url}${linkUrl}`)}>
     */
   <div className={`${size} menu-item` } 

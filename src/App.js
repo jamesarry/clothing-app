@@ -1,13 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import HomePage from './pages/homepage/homepage.component';
+import ShopPage from './pages/shop/shop.component.jsx';
 import './App.css';
 
-const HatsPage = () => (
-    <div>
-        <h1>Hat Page</h1>
-    </div>
-);
+
 /**Component is the compnent we want the route to render
  * Path is the string that the path equals to the base url
  * exact is true by defualt. it means the path must be exactly in the base for component to render HomePage and the next component
@@ -19,7 +16,7 @@ function App() {
         <div>
             <switch>
               <Route exact path='/' component={HomePage}/>
-              <Route path='/hats' component={HatsPage}/>
+              <Route path='/shop' component={ShopPage}/>
             </switch>
         </div>
     );
