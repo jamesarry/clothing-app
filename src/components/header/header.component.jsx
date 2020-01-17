@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -6,8 +5,10 @@ import { connect } from 'react-redux';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
 import './header.styles.scss';
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
-const Header = ({ currentUser }) =>(
+const Header = ({ currentUser, hidden }) =>(
   <div className="header">
         <Link className="logo-container" to="/">
           <Logo className="logo" />
@@ -28,14 +29,23 @@ const Header = ({ currentUser }) =>(
           <Link className="option" to="/signin">
             SIGN IN
           </Link>
-        )}     
+        )}  
+        <CartIcon />   
      </div>
+     { 
+       hidden ? null : <CartDropdown />
+    }
   </div>
+    
 );
 
-//Use to grab the state from the reducer. state is the root reducer
-const mapStateToProps = state => ({
-   currentUser: state.user.currentUser
+/**
+ * Use to grab the state from the reducer. state is the root reducer
+ *get the currentuser out of the user 
+ */
+const mapStateToProps = ({user: {currentUser}, cart: {hidden} }) => ({
+   currentUser,
+   hidden
 })
 /**
 Use connect to connect our store to our component and pass in the mapStateToProps as argument */
