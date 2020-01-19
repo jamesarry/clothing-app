@@ -11,9 +11,9 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
        ? { ...cartItem, quantity: cartItem.quantity + 1 }//Get all cartItem and also cartItem qunatity increasing it by 1 
        //Just leave the cartItem the way it is if there is no update
        : cartItem
-      )
+      );
   }
   /**If the nothing happen, return a new array with all of our existing cart item alraady there and also add an object with the qunatity with base to 1 */
-  return [...cartItems, { ...cartItemToAdd, qunatity: 1 }]
+  return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 };
 

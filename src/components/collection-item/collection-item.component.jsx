@@ -6,7 +6,7 @@ import { addItem } from '../../redux/cart/cart.actions';
 
 import './collection-item.styles.scss';
 
-const CollectionItem = ({item, addItem }) =>{
+const CollectionItem = ({ item, addItem }) =>{
 
    const { name, price, imageUrl } = item;
 
@@ -24,7 +24,9 @@ const CollectionItem = ({item, addItem }) =>{
      </div>       
     <CustomButton onClick={() => addItem(item)} inverted>Add to cart</CustomButton> 
   </div>
-)};
+);
+
+};
 /*addItem will go into the collectionItem component as the add item and then dispatch into the store
 */
 const mapDispatchToProps = dispatch => ({
