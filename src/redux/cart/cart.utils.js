@@ -13,7 +13,23 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
        : cartItem
       );
   }
-  /**If the nothing happen, return a new array with all of our existing cart item alraady there and also add an object with the qunatity with base to 1 */
+  /**If nothing happen, return a new array with all of our existing cart item alraady there and also add an object with the qunatity with base to 1 */
   return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 };
 
+export const removeItemFromCart = (cartItems, cartItemToRemove) => {
+   const existingCartItem = cartItems.find(
+     cartItem => cartItem.id === cartItemToRemove.id
+   )
+   //if the id is the one we want to remove, remove it otherwise keep it
+   if(existingCartItem.quantity === 1) {
+      return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
+   }
+
+   return cartItems.map(
+     cartItem =>
+     cartItem.id === cartItemToRemove.id 
+     ? { ...cartItem, quantity: cartItem.quantity - 1 }
+     : cartItem
+   );
+};

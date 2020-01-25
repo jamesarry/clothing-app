@@ -24,8 +24,16 @@
     width: 23%;
   }
 
-  .quantitty {
-    padding-left: 20px;
+  .quantity {
+    display: flex;
+
+    .arrow {
+      cursor: pointer;
+    }
+
+    .value {
+      margin: 0 10px;
+    }
   }
 
 }
